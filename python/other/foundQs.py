@@ -1,7 +1,10 @@
-from Tree import Node, BinaryTree, BinarySearchTree
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
+from python.data_structures.Tree import Node, BinaryTree, BinarySearchTree
 # Construct a tree using pre-order and inorder traversal
 # This takes O(n) time since every node should be touched once
-# Mem is something like 2(n/2 + n/4 + n/8) etc 
+# Mem is something like 2(n/2 + n/4 + n/8) etc
 def rebuild_tree(inorder, preorder, node = None, left = None):
 	if len(preorder) == 1:
 		root = Node(preorder.pop())
@@ -34,7 +37,7 @@ def rebuild_tree(inorder, preorder, node = None, left = None):
 	return root
 
 # This can also be done without inorder. Easy if O(nlogn) is
-# good enough just go through list and use add_node func. 
+# good enough just go through list and use add_node func.
 # But how do you do it in O(n) time?
 def reubild_tree2(preorder, tree = None):
 	pass
@@ -83,7 +86,7 @@ def is_prime(n):
     return True
 
 # Given a string, check if it is made of a repeated substring
-# This is O(n) time since it only has to iterate through the 
+# This is O(n) time since it only has to iterate through the
 # string once. However takes around O(n) mem. Brute force
 # has constant mem but is O(n^2)
 def is_repeated(s):
@@ -153,6 +156,6 @@ if __name__ == '__main__':
 		elif int(num) == 8:
 			q8_test()
 		elif int(num) == 9:
-			q9_test()	
+			q9_test()
 		else:
 			print "Invalid input"
