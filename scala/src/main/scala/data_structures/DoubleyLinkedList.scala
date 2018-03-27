@@ -1,3 +1,5 @@
+package data_structures
+
 case class DoubleNode(var data: Any, var prev: DoubleNode, var next: DoubleNode)
     extends Node {
 

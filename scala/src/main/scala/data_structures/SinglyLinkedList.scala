@@ -1,3 +1,5 @@
+package data_structures
+
 case class SingleNode(var data: Any, var next: SingleNode)
     extends Node {
   def this(data: Any) = this(data, null)

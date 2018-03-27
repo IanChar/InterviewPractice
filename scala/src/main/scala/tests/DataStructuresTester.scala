@@ -1,4 +1,8 @@
-object DataStructuresTester {
+package tests
+
+import data_structures._
+
+class DataStructuresTester {
   val startTestingMessage: String =
       "------------Starting Testing-------------"
   val completeTestingMessage: String =
@@ -55,7 +59,7 @@ object DataStructuresTester {
     println(completeTestingMessage)
   }
 
-  def main(args: Array[String]): Unit = {
+  def runTests(): Unit = {
     var running = true
     while (running) {
       println(getOptions())
