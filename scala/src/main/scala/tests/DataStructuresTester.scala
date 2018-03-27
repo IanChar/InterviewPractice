@@ -8,10 +8,23 @@ class DataStructuresTester {
   val completeTestingMessage: String =
       "------------Testing Complete-------------"
 
+  def isCorrect(received: Any, expected: Any): Boolean = {
+    if (received == expected) {
+      println(received + " matches " + expected)
+      return true
+    } else {
+      println(received + " did not match " + expected)
+      return false
+    }
+  }
+
   def getOptions(): String = {
-    "\n1: Singly Linked List\n" +
+    "\n-------------DATA STRUCTURES------------\n" +
+    "1: Singly Linked List\n" +
     "2: Doubly Linked list\n" +
-    "q: Quit"
+    "3: Binary Tree\n" +
+    "q: Quit\n" +
+    "-----------------------------------------"
   }
 
   def testSinglyLinkedList(): Unit = {
@@ -59,6 +72,35 @@ class DataStructuresTester {
     println(completeTestingMessage)
   }
 
+  def testBinaryTree(): Unit = {
+    var correct: Int = 0
+    println(startTestingMessage)
+
+    println("Creating binary tree...")
+    var bTree: BinaryTree = new BinaryTree(new TreeNode(1))
+    var curr: TreeNode = bTree.getRoot()
+    curr.setLeft(new TreeNode(2))
+    curr.setRight(new TreeNode(3))
+    curr = curr.getLeft().get
+    curr.setLeft(new TreeNode(4))
+    curr.setRight(new TreeNode(5))
+
+    println("Pre order traversal:")
+    if (isCorrect(bTree.preorder(), "1, 2, 4, 5, 3")) {
+      correct += 1
+    }
+    println("In order traversal:")
+    if (isCorrect(bTree.inorder(), "4, 2, 5, 1, 3")) {
+      correct += 1
+    }
+    println("Post order traversal:")
+    if (isCorrect(bTree.postorder(), "4, 5, 2, 3, 1")) {
+      correct += 1
+    }
+    println(correct + "/3 Tests Passed")
+    println(completeTestingMessage)
+  }
+
   def runTests(): Unit = {
     var running = true
     while (running) {
@@ -67,6 +109,7 @@ class DataStructuresTester {
       in match {
         case "1" => testSinglyLinkedList()
         case "2" => testDoublyLinkedList()
+        case "3" => testBinaryTree()
         case "q" => running = false
         case _ => "Invalid input"
       }

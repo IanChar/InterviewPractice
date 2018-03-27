@@ -5,8 +5,10 @@ import tests._
 object Main {
 
   def getOptions(): String = {
-    "\n1: Data Structures\n" +
-    "q: Quit"
+    "\n-------------MAIN-------------\n" +
+    "1: Data Structures\n" +
+    "q: Quit\n" +
+    "-------------------------------"
   }
 
   def main(args: Array[String]): Unit = {
